@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Montserrat, Arial, sans-serif;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 0 15px;
+}
+
+.heading {
+    font-size: 3em;
+    text-align: center;
+    margin: 1em 0;
+}
+
+.img {
+    width: 100%;
+    border: 4px solid #dbdbdb;
+    transition: 0.4s ease-out;
+}
+
+.item {
+    margin: 0.5em 0;
+    padding: 15px 0;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid transparent;
+    transition: 0.4s ease-out;
+}
+
+.item:hover {
+    border-color: #fff;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.38);
+}
+
+.item:hover img {
+    transform: scale(1.15);
+}
+
+.item::after {
+    content: attr(data-descr);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    padding: 20% 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    font-size: 1.5em;
+    transition: 0.5s ease-out;
+}
+
+.item:hover::after {
+    top: 20%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #0f1384;
+    cursor: pointer;
+    transition: .5s;
+    margin-bottom: 35px;
+}
+
+.btn:hover {
+    background: #8488f8;
+}
+
+@media (max-width: 960px) {
+    .column {
+        flex-basis: 50%;
+    }
+    .item {
+        margin-bottom: 0;
+        padding-top: 0;
+    }
+    .item:hover {
+        box-shadow: none;
+    }
+    .item:hover img {
+        transform: scale(1.05);
+    }
+    .item::after, .item:hover::after {
+        top: auto;
+        width: calc(100% - 38px);
+        left: 19px;
+        bottom: 25px;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 2.5rem;
+        margin: 2rem 0;
+    }
+    .column {
+        flex-basis: 100%;
+    }
+}
